@@ -10,3 +10,25 @@ func Sum(numbers []int) int  {
 	}
 	return sum
 }
+
+func SumAll(numbersToSum ...[]int) (sums []int) {
+	// lengthOfNumbers := len(numbersToSum)
+	// sums := make([]int,lengthOfNumbers)
+
+	for _,numbers := range numbersToSum{
+		sums = append(sums,Sum(numbers))
+	}
+	return
+}
+
+func SumAllTails(numbersToSum ...[]int) (sums []int){
+	for _,numbers := range numbersToSum{
+		// lengthOfNums := len(numbers)
+		if len(numbers) > 0 {
+			sums = append(sums, Sum(numbers[1:]))
+		}else{
+			sums = append(sums,0)
+		}
+	}
+	return
+}
